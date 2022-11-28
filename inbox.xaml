@@ -1,0 +1,81 @@
+﻿<Window x:Class="hotPlans.Pages.inbox"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:hotPlans"
+        mc:Ignorable="d"
+        Title="hotPlans" Height="960" Width="1920"
+        Icon="/Resources/Icons/logo.png"
+        WindowState="Maximized">
+    <Grid Background="#FDF6E7">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="65"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="65"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="330"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="0" Background="#F46158">
+            <local:NavButton x:Name="MiniLogo" VerticalAlignment="Center" HorizontalAlignment="Center" NavUri="MainWindow.xaml" ImageSource="/Resources/Icons/logo.png"/>
+        </Grid>
+
+        <Grid x:Name="TopBar" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Background="#F46158">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="270"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <TextBlock  Text="Inbox" FontFamily="Montserrat" FontSize="25" FontWeight="Medium" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="White" Margin="40,0,0,0"/>
+            </Grid>
+            <Grid Grid.Column="1">
+                <TextBox Text="Search..." VerticalContentAlignment="Center" HorizontalAlignment="Right" Foreground="#A0A0A0" FontFamily="Montserrat" FontSize="17"  Width="280" Height="35"  MaxLength="1000" />
+            </Grid>
+            <Grid Grid.Column="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <local:NavButton ImageSource="/Resources/Icons/notification_bell.png"/>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <local:NavButton ImageSource="/Resources/Icons/settings.png"/>
+                </Grid>
+                <Grid Grid.Column="2">
+                    <local:NavButton ImageSource="/Resources/Icons/user_avatar.png"/>
+                </Grid>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="0" x:Name="LeftNavigationBar"  Background="#F46158">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="350"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Margin="0,30,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <local:NavButton Grid.Row="0" x:Name="Inbox"  ImageSource="\Resources\Icons\inbox.png" />
+                <local:NavButton Grid.Row="1" x:Name="Today"   ImageSource="\Resources\Icons\today.png" />
+                <local:NavButton Grid.Row="2" x:Name="Calendar"  ImageSource="\Resources\Icons\calendar.png" />
+                <local:NavButton Grid.Row="3" x:Name="Statictics"  ImageSource="\Resources\Icons\statistics.png" />
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="1">
+            </Grid>
+        <Grid Grid.Row="1" Grid.Column="2" Background="#FFDEB7">
+            <TextBlock Text="click on task to view details" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Montserrat" FontSize="25" Foreground="#ffffff"/>
+        </Grid>
+    </Grid>
+</Window>

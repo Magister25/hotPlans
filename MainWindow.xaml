@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:hotPlans"
         mc:Ignorable="d"
         Title="hotPlans" Height="960" Width="1920"
-        Icon="/Resources/Icons/logo.png"
+        Icon="/Resources/Icons/icon.png"
         WindowState="Maximized">
-    <Grid>
+    <Grid Background="#FDF6E7">
         <Grid.RowDefinitions>
             <RowDefinition Height="65"/>
             <RowDefinition Height="*"/>
@@ -17,14 +17,14 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="65"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="330"/>
+            <ColumnDefinition Width="350"/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Row="0" Grid.Column="0" Background="#A0A0A0">
-            <local:NavButton x:Name="MiniLogo" VerticalAlignment="Center" HorizontalAlignment="Center" NavUri="MainWindow.xaml" ImageSource="/Resources/Icons/logo.png"/>
+        <Grid Grid.Row="0" Grid.Column="0" Background="#F46158">
+            <local:NavButton x:Name="MiniLogo" VerticalAlignment="Center" HorizontalAlignment="Center" NavUri="MainWindow.xaml" ImageSource="/Resources/Icons/icon.png" />
         </Grid>
 
-        <Grid x:Name="TopBar" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Background="#A0A0A0">
+        <Grid x:Name="TopBar" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Background="#F46158">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition Width="*"/>
@@ -49,44 +49,101 @@
                     <local:NavButton ImageSource="/Resources/Icons/settings.png"/>
                 </Grid>
                 <Grid Grid.Column="2">
-                    <local:NavButton ImageSource="/Resources/Icons/user_picture.png"/>
+                    <local:NavButton ImageSource="/Resources/Icons/user_avatar.png"/>
                 </Grid>
             </Grid>
         </Grid>
 
-        <Grid Grid.Row="1" Grid.Column="0" x:Name="LeftNavigationBar"  Background="#A0A0A0">
+        <Grid Grid.Row="1" Grid.Column="0" x:Name="LeftNavigationBar"  Background="#F46158">
             <Grid.RowDefinitions>
                 <RowDefinition Height="350"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0" Margin="0,30,0,0">
+            <Grid Grid.Row="0" Margin="0,30,0,0" >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <local:NavButton Grid.Row="0" x:Name="Inbox"  ImageSource="Resources\Icons\inbox.png" />
-                <local:NavButton Grid.Row="1" x:Name="Today"   ImageSource="Resources\Icons\today.png" />
-                <local:NavButton Grid.Row="2" x:Name="Calendar"  ImageSource="Resources\Icons\calendar.png" />
-                <local:NavButton Grid.Row="3" x:Name="Statictics"  ImageSource="Resources\Icons\statistics.png" />
+                </Grid.RowDefinitions >
+                <local:NavButton Grid.Row="0" x:Name="Inbox"  ImageSource="Resources\Icons\inbox.png" NavUri="/inbox.xaml"/>
+                <local:NavButton Grid.Row="1" x:Name="Today"   ImageSource="Resources\Icons\today.png" NavUri=""/>
+                <local:NavButton Grid.Row="2" x:Name="Calendar"  ImageSource="Resources\Icons\calendar.png" NavUri=""/>
+                <local:NavButton Grid.Row="3" x:Name="Statictics"  ImageSource="Resources\Icons\statistics.png" NavUri="/statistics.xaml"/>
             </Grid>
         </Grid>
         <Grid Grid.Row="1" Grid.Column="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Rectangle Grid.Row="0" Grid.Column="0" Width="605" Height="400" Margin="85,80" Fill="#D9D9D9"/>
-            <Rectangle Grid.Row="1" Grid.Column="0" Width="605" Height="400" Margin="85,80" Fill="#D9D9D9"/>
-            <Rectangle Grid.RowSpan="2" Grid.Column="1" Width="605" Height="900" Margin="85,80" Fill="#D9D9D9"/>
+            <Grid Grid.Row="0" Grid.Column="0" Margin="50,55,60,60" Background="#FFE6B1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Margin="30,30,30,20">
+                    <TextBlock  Text="Today" FontFamily="Montserrat" FontSize="20" FontWeight="SemiBold" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="#280603" />
+                    <Button x:Name="buttonAddTask" Content="+" HorizontalAlignment="Right" VerticalAlignment="Center" BorderThickness="0" Width="50" Height="50" Background="Transparent" Foreground="#280603" FontSize="40" FontFamily="Montserrat" />
+                </Grid>
+                <Grid Grid.Row="1" Margin="30,0,30,30">
+                   <StackPanel x:Name="TasksBox" >
+                        <CheckBox  IsChecked="False" Margin="0,0,0,15 " Content="Зробити 14 лабку з паралелок" FontSize="20" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Montserrat" Foreground="#280603"/>
+                        <CheckBox  IsChecked="False" Margin="0,0,0,15 " Content="Купити їсти коту" FontSize="20" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Montserrat" Foreground="#280603"/>
+                        <CheckBox  IsChecked="False" Margin="0,0,0,15 " Content="Вигуляти собаку" FontSize="20" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Montserrat" Foreground="#280603"/>
+                        <CheckBox  IsChecked="False" Margin="0,0,0,15 " Content="Зварити суп" FontSize="20" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Montserrat" Foreground="#280603"/>
+                        <CheckBox  IsChecked="False" Margin="0,0,0,15 " Content="Підготуватися до вебу" FontSize="20" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Montserrat" Foreground="#280603"/>
+                        <CheckBox  IsChecked="True" Margin="0,0,0,15 " Content="Зробити презентацію проекту" FontSize="20" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Montserrat" Foreground="#280603"/>
+                    </StackPanel>
+
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="1" Grid.Column="0" Margin="50,0,60,60" Background="#FFE6B1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Margin="30,30,30,20">
+                    <TextBlock  Text="Focus time" FontFamily="Montserrat" FontSize="20" FontWeight="SemiBold" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="#280603" />
+                    <TextBlock  Text="Last week" FontFamily="Montserrat" FontSize="16" FontWeight="SemiBold" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="#280603" />
+               </Grid>
+                <Grid Grid.Row="1" Margin="30,100,30,50">
+                    <TextBlock  Text="Upgrade your account to premium to use this feature." TextWrapping="Wrap" FontFamily="Montserrat" FontSize="20" FontWeight="SemiBold" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="#280603" />
+                </Grid>
+            </Grid>
+            <Grid Grid.RowSpan="2" Grid.Column="1" Margin="50,55,60,60" Background="#FFE6B1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Margin="30,30,30,20">
+                    <TextBlock  Text="Week view" FontFamily="Montserrat" FontSize="20" FontWeight="SemiBold" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="#280603" />
+                    <Button Content="+" HorizontalAlignment="Right" VerticalAlignment="Center" BorderThickness="0" Width="50" Height="50" Background="Transparent" Foreground="#280603" FontSize="40" FontFamily="Montserrat" />
+                    <TextBlock  Text="21-27 November 2022"  FontFamily="Montserrat" FontSize="20" FontWeight="Light" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="#280603" Margin="0,0,20,-20" />
+                </Grid>
+                <Grid Grid.Row="1" Margin="30,30,30,20">
+                    <StackPanel >
+                        <CheckBox  IsChecked="False" Margin="0,0,0,15 " Content="Відвезти машину в сто" FontSize="20" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Montserrat" Foreground="#280603"/>
+                        <CheckBox  IsChecked="False" Margin="0,0,0,15 " Content="Дочитати книгу 'Атлант розправив крила'" FontSize="20" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Montserrat" Foreground="#280603"/>
+                        <CheckBox  IsChecked="False" Margin="0,0,0,15 " Content="Почати бізнес" FontSize="20" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Montserrat" Foreground="#280603"/>
+                        <CheckBox  IsChecked="False" Margin="0,0,0,15 " Content="Вкластись в бінанс" FontSize="20" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Montserrat" Foreground="#280603"/>
+                        <CheckBox  IsChecked="False" Margin="0,0,0,15 " Content="Крутити бінанс" FontSize="20" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Montserrat" Foreground="#280603"/>
+                        <CheckBox  IsChecked="False" Margin="0,0,0,15 " Content="Переховуватись від сбу" FontSize="20" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Montserrat" Foreground="#280603"/>
+                        <CheckBox  IsChecked="False" Margin="0,0,0,15 " Content="Купити віллу на Мальдівах" FontSize="20" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Montserrat" Foreground="#280603"/>
+                        <CheckBox  IsChecked="True" Margin="0,0,0,15 " Content="Купити квитки на мальдіви" FontSize="20" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Montserrat" Foreground="#280603"/>
+                        <CheckBox  IsChecked="True" Margin="0,0,0,15 " Content="Подати резюме в SoftServe" FontSize="20" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Montserrat" Foreground="#280603"/>
+                    </StackPanel>
+                    
+                </Grid>
+            </Grid>
         </Grid>
-        <Grid Grid.Row="1" Grid.Column="2" Background="#D9D9D9">
+        <Grid Grid.Row="1" Grid.Column="2" Background="#FFDEB7">
             <TextBlock Text="click on task to view details" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Montserrat" FontSize="25" Foreground="#ffffff"/>
+            <TextBlock Text="SOON..." Margin="10,10,10,-50"  VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Montserrat" FontSize="25" Foreground="#ffffff"/>
         </Grid>
     </Grid>
 </Window>
